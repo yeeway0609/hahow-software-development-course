@@ -1,0 +1,18 @@
+[MASTER]
+
+ignore=containers.py
+
+[REPORTS]
+
+evaluation=10.0 - ((float(5 * error + warning + convention) / statement) * 10)
+
+[MESSAGES CONTROL]
+
+disable=
+    attribute-defined-outside-init,
+    duplicate-code,
+    invalid-name,
+    missing-docstring,
+    protected-access,
+    too-few-public-methods,
+    format
