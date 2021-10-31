@@ -1,1 +1,1 @@
-web: FLASK_APP=order_system pipenv run flask run
+web: FLASK_APP=order_system pipenv run flask run --host 0.0.0.0 --port ${PORT}

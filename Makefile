@@ -9,17 +9,21 @@ setupMongo:
 format:
 	pipenv run black order_system
 
+format-check:
+	pipenv run black --check --diff order_system
+
 lint:
 	pipenv run pylint order_system
 
 test-unit:
 	pipenv run pytest tst/unit
+	pipenv run pytest -v tst/unit
 
 test-inte:
 	pipenv run pytest tst/integration
+	pipenv run pytest -v tst/integration
 
 test-all: test-unit test-inte
-
 run:
 	FLASK_APP=order_system pipenv run flask run
 

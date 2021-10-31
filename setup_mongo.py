@@ -48,7 +48,6 @@ def setup_mongo():
         return
     client = MongoClient(host=os.getenv("MONGO_ENDPOINT"))
     client.order_system.menu.insert_many(menu_data)
-    client.order_system_prod.menu.insert_many(menu_data)
     print("資料匯入成功！")
 
 
