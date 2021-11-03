@@ -1,7 +1,6 @@
 init:
 	pip install pipenv
 	pipenv install
-	pipenv check
 
 setupMongo:
 	pipenv run python setup_mongo.py
