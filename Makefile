@@ -1,5 +1,5 @@
 init:
-	pip install --user pipenv
+	pip install pipenv
 	pipenv install
 
 setupMongo:
