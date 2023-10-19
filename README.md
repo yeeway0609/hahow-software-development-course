@@ -21,7 +21,7 @@
 
 ### Useful Commands
 
-```make format```： 自動排版專案中所有的 code 
+```make format```： 自動排版專案中所有的 code
 
 ```make format-check```： 確認 code 是否有排版問題，但不主動重新排版
 
@@ -34,3 +34,6 @@
 ```make test-all```： 執行專案中所有的 tests
 
 ```make run```： 在電腦上啟動點餐系統後端伺服器
+
+### Design Doc
+[點餐系統後端API設計文件](https://github.com/yeeway0609/hahow-software-development-course/design_doc)
