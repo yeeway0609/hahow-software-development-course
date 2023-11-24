@@ -9,15 +9,15 @@ pylint = "*"
 pytest = "*"
 pytest-mock = "*"
 pymongo = "*"
-dependency_injector = "*"
 dataclasses = "*"
 dnspython = "*"
 black = "*"
+dependency-injector = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.6"
+python_version = "3.11"
 
 [pipenv]
 allow_prereleases = true
