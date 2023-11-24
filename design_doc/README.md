@@ -69,10 +69,6 @@
     GetOrderInput: {
         id: String,
     }
-
-    GetCustomerOrdersInput: {
-        customer: String,
-    }
     ```
 
 - 輸出：
@@ -81,6 +77,31 @@
         order: OrderItem
     }
 
+    OrderItem: {
+        id: String,
+        customer: String,
+        orderTime: timestamp,
+        items: array<MenuItem.name>,
+        totalPrice: int,
+        status: String
+    }
+    ```
+
+- Exception:
+    - Invalid Input - 當輸入值的結構不符合 GetOrderInput 的要求時，返回此錯誤
+    - Internal Server Error - 任何系統錯誤
+
+### GetCustomerOrders
+- 簡介： 輸入客人姓名以讀取訂單資訊
+- 輸入:
+    ```
+    GetCustomerOrdersInput: {
+        customer: String,
+    }
+    ```
+
+- 輸出：
+    ```
     GetCustomerOrdersOuput: {
         orders: array<OrderItem>
     }
@@ -96,7 +117,7 @@
     ```
 
 - Exception:
-    - Invalid Input - 當輸入值的結構不符合 GetOrderInput 或 GetCustomerOrdersInput 的要求時，返回此錯誤
+    - Invalid Input - 當輸入值的結構不符合 GetCustomerOrdersInput 的要求時，返回此錯誤
     - Internal Server Error - 任何系統錯誤
 
 ### CreateOrder
