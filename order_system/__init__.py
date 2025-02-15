@@ -12,6 +12,7 @@ from order_system.handler.get_menu import GetMenuView
 from order_system.handler.get_order import GetOrderView
 from order_system.handler.create_order import CreateOrderView
 
+
 def create_app(container=Container()):
     """用來創建 flask server，同時會設定與資料庫的連結
 

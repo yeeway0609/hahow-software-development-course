@@ -47,14 +47,13 @@ class CreateOrderHandler:
 
         self.validate_input(request_body)
 
-        order_id = self.__order_collection_dao.create_order_data(
-            order=request_body
-        )
+        order_id = self.__order_collection_dao.create_order_data(order=request_body)
 
         response = {"order_id": str(order_id)}
         current_app.logger.info("Successfully created order: " + str(response))
 
         return response
+
 
 class CreateOrderView(MethodView):
     def __init__(

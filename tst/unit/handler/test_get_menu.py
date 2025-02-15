@@ -31,21 +31,25 @@ def test_validate_input_when_failed(test_app_context):
 
 def test_get_menu_when_call_succeed(test_app_context):
     with test_app_context():
-        db_result = [{
-            "name": "test_name",
-            "category": "test_category",
-            "price": "test_price",
-        }]
+        db_result = [
+            {
+                "name": "test_name",
+                "category": "test_category",
+                "price": "test_price",
+            }
+        ]
         mock_menu_dao = create_autospec(MenuCollectionDAO)
         mock_menu_dao.get_menu_data = Mock(return_value=db_result)
         get_menu_handler = GetMenuHandler(mock_menu_dao)
 
         expected = {
-            "menu": [{
-                "name": "test_name",
-                "category": "test_category",
-                "price": "test_price",
-            }]
+            "menu": [
+                {
+                    "name": "test_name",
+                    "category": "test_category",
+                    "price": "test_price",
+                }
+            ]
         }
         assert get_menu_handler.handle_request({}) == expected
         mock_menu_dao.get_menu_data.assert_called_once_with(category=None)
@@ -53,21 +57,25 @@ def test_get_menu_when_call_succeed(test_app_context):
 
 def test_get_menu_when_call_succeed_with_category(test_app_context):
     with test_app_context():
-        db_result = [{
-            "name": "test_name",
-            "category": "test_category",
-            "price": "test_price",
-        }]
+        db_result = [
+            {
+                "name": "test_name",
+                "category": "test_category",
+                "price": "test_price",
+            }
+        ]
         mock_menu_dao = create_autospec(MenuCollectionDAO)
         mock_menu_dao.get_menu_data = Mock(return_value=db_result)
         get_menu_handler = GetMenuHandler(mock_menu_dao)
 
         expected = {
-            "menu": [{
-                "name": "test_name",
-                "category": "test_category",
-                "price": "test_price",
-            }]
+            "menu": [
+                {
+                    "name": "test_name",
+                    "category": "test_category",
+                    "price": "test_price",
+                }
+            ]
         }
         assert get_menu_handler.handle_request({"category": "Entree"}) == expected
         mock_menu_dao.get_menu_data.assert_called_once_with(category="Entree")
@@ -75,20 +83,24 @@ def test_get_menu_when_call_succeed_with_category(test_app_context):
 
 def test_get_menu_when_call_succeed_with_missing_db_field(test_app_context):
     with test_app_context():
-        db_result = [{
-            "name": "test_name",
-            "category": "test_category",
-        }]
+        db_result = [
+            {
+                "name": "test_name",
+                "category": "test_category",
+            }
+        ]
         mock_menu_dao = create_autospec(MenuCollectionDAO)
         mock_menu_dao.get_menu_data = Mock(return_value=db_result)
         get_menu = GetMenuHandler(mock_menu_dao)
 
         expected = {
-            "menu": [{
-                "name": "test_name",
-                "category": "test_category",
-                "price": None,
-            }]
+            "menu": [
+                {
+                    "name": "test_name",
+                    "category": "test_category",
+                    "price": None,
+                }
+            ]
         }
         assert get_menu.handle_request({}) == expected
         mock_menu_dao.get_menu_data.assert_called_with(category=None)

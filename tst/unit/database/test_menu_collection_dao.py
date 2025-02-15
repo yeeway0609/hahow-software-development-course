@@ -24,4 +24,4 @@ def test_get_menu_when_call_succeed_with_category(test_app_context):
 
         menu_dao = MenuCollectionDAO(mock_collection)
         assert menu_dao.get_menu_data("entree") == expected
-        mock_collection.find.assert_called_with({'category': 'entree'})
+        mock_collection.find.assert_called_with({"category": "entree"})

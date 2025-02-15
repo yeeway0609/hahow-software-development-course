@@ -17,10 +17,7 @@ class MockContainer(containers.DeclarativeContainer):
 
     db_client = providers.Object(mock_db)
 
-    menu_collection_dao = providers.Callable(
-        create_autospec,
-        MenuCollectionDAO
-    )
+    menu_collection_dao = providers.Callable(create_autospec, MenuCollectionDAO)
 
     get_menu_handler = providers.Factory(
         GetMenuHandler, menu_collection_dao=menu_collection_dao
@@ -36,5 +33,5 @@ def client():
 
 
 def test_get_menu_api(client):
-    response = client.post('/get-menu/', json={})
+    response = client.post("/get-menu/", json={})
     assert response.get_json() == {"menu": []}

@@ -7,36 +7,43 @@ from order_system import InvalidAPIUsageException
 from order_system.database.order_collection_dao import OrderCollectionDAO
 from order_system.handler.create_order import CreateOrderHandler
 
+
 def test_validate_input_when_succeed(test_app_context):
     with test_app_context():
         try:
-            CreateOrderHandler.validate_input({
-                "customerName": "test_customer",
-                "orderTime": "test_time",
-                "items": ["item1", "item2"]
-            }) # 測試輸入符合格式的值
+            # 測試輸入符合格式的值
+            CreateOrderHandler.validate_input(
+                {
+                    "customerName": "test_customer",
+                    "orderTime": "test_time",
+                    "items": ["item1", "item2"],
+                }
+            )
         except InvalidAPIUsageException:
             pytest.fail("Unexpected InvalidAPIUsageException ..")
+
 
 def test_validate_input_when_failed(test_app_context):
     with test_app_context():
         with pytest.raises(InvalidAPIUsageException):
-            CreateOrderHandler.validate_input({
-                "bad_field": ""
-            }) # 測試輸入不存在的欄位
+            # 測試輸入不存在的欄位
+            CreateOrderHandler.validate_input({"bad_field": ""})
         with pytest.raises(InvalidAPIUsageException):
-            CreateOrderHandler.validate_input({
-                "customerName": "",
-                "orderTime": "",
-                "items": []
-            }) # 測試輸入空值
+            # 測試輸入空值
+            CreateOrderHandler.validate_input(
+                {"customerName": "", "orderTime": "", "items": []}
+            )
         with pytest.raises(InvalidAPIUsageException):
-            CreateOrderHandler.validate_input({
-                "customerName": "test_customer",
-                "orderTime": "test_time",
-                "items": ["item1"],
-                "extra": ""
-            }) # 測試輸入多餘的欄位
+            # 測試輸入多餘的欄位
+            CreateOrderHandler.validate_input(
+                {
+                    "customerName": "test_customer",
+                    "orderTime": "test_time",
+                    "items": ["item1"],
+                    "extra": "",
+                }
+            )
+
 
 def test_create_order_when_call_succeed(test_app_context):
     with test_app_context():
@@ -47,7 +54,7 @@ def test_create_order_when_call_succeed(test_app_context):
         request_body = {
             "customerName": "test_customer",
             "orderTime": "test_time",
-            "items": ["item1", "item2"]
+            "items": ["item1", "item2"],
         }
 
         expected = {"order_id": "test_order_id"}

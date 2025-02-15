@@ -31,5 +31,7 @@ def test_create_order_when_call_succeed(test_app_context):
         order_dao = OrderCollectionDAO(mock_collection)
         test_order_data = {"test": "test_value"}
         # Valid ObjectId must be a 12-byte input or a 24-character hex string
-        assert order_dao.create_order_data(test_order_data) == expected_result.inserted_id
+        assert (
+            order_dao.create_order_data(test_order_data) == expected_result.inserted_id
+        )
         mock_collection.insert_one.assert_called_once_with(test_order_data)
