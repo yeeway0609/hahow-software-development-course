@@ -18,7 +18,7 @@ class MenuCollectionDAO:
         search_filter = {"category": category} if category else {}
         current_app.logger.info(
             "Start retrieving menu from mongoDB menu collection with condition: "
-            + search_filter.__str__()
+            + str(search_filter)
         )
         data = self.__menu_collection.find(search_filter)
         current_app.logger.info(

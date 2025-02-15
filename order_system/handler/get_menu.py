@@ -62,7 +62,7 @@ class GetMenuHandler:
             }
 
         response = {"menu": list(map(construct_menu_item, menu))}
-        current_app.logger.info("Returning the response: " + response.__str__())
+        current_app.logger.info("Returning the response: " + str(response))
 
         return response
 
