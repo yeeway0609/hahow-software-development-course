@@ -13,7 +13,7 @@ class MenuCollectionDAO:
         """向資料庫索取 menu 資料，若有提供 category 則只索取該 category 的 menu
 
         :param category:
-        :return: 資料課庫中的 menu 資料
+        :return: 資料庫中的 menu 資料
         """
         search_filter = {"category": category} if category else {}
         current_app.logger.info(

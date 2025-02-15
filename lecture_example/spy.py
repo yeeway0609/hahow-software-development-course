@@ -12,6 +12,6 @@ def test_get_total_score(mocker):
     spy = mocker.spy(fake_database, 'get_all_score')
     assert score_handler.get_total_score("Andy") == 285
 
-    spy.assert_called_with("Any")
+    spy.assert_called_with("Any") # 這裡是故意寫錯的，所以會報錯
     assert spy.call_count == 1
 
