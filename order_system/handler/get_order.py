@@ -7,6 +7,7 @@ from flask.views import MethodView
 from order_system.database.order_collection_dao import OrderCollectionDAO
 from order_system.exception import InvalidAPIUsageException
 
+
 class GetOrderHandler:
     @inject
     def __init__(self, order_collection_dao: OrderCollectionDAO):
