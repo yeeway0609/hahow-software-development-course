@@ -1,9 +1,9 @@
 init:
-	pip3 install pipenv
+	pip install pipenv
 	pipenv install
 
 setupMongo:
-	pipenv run python3 setup_mongo.py
+	pipenv run python setup_mongo.py
 
 format:
 	pipenv run black order_system
