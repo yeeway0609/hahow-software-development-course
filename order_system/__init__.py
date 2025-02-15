@@ -1,3 +1,5 @@
+import os
+
 from logging.config import dictConfig
 
 from flask import Flask
@@ -10,7 +12,6 @@ from order_system.handler.get_menu import GetMenuView
 from order_system.handler.get_order import GetOrderView
 from order_system.handler.create_order import CreateOrderView
 
-
 def create_app(container=Container()):
     """用來創建 flask server，同時會設定與資料庫的連結
 
@@ -20,6 +21,8 @@ def create_app(container=Container()):
     container.wire(packages=[handler])
 
     app = Flask(__name__)
+    app.config["ENV"] = os.getenv("ENV", "development")
+
     if app.config["ENV"] == "production":
         app.config.from_object(ProductionConfig)
     else:
