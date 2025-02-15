@@ -37,5 +37,13 @@
 
 ## 作業練習
 
-### Design Doc
-[點餐系統後端API設計文件](https://github.com/yeeway0609/hahow-software-development-course/tree/main/design_doc)
+### 1. Design Doc
+[點餐系統後端API設計文件](./design_doc/README.md)
+
+### 2. API Implementation
+- [GetOrder](./order_system/handler/get_order.py)
+- [CreateOrder](./order_system/handler/create_order.py)
+
+### 3. Unit Test
+- [TestGetOrder](./tst/unit/handler/test_get_order.py)
+- [TestCreateOrder](./tst/unit/handler/test_create_order.py)
