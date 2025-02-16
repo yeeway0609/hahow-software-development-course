@@ -47,21 +47,13 @@ class GetOrderHandler:
 
         self.validate_input(request_body)
 
+        # 透過 request_body 中的 order_id 取得訂單資料
         order = self.__order_collection_dao.get_order_data(
             order_id=request_body.get("order_id")
         )
 
-        def construct_order_item(db_order_item: dict):
-            return {
-                "order_id": db_order_item.get("order_id"),
-                "customerName": db_order_item.get("customerName"),
-                "orderTime": db_order_item.get("orderTime"),
-                "items": db_order_item.get("items"),
-                "total_price": db_order_item.get("total_price"),
-                "status": db_order_item.get("status"),
-            }
-
-        response = {"order": list(map(construct_order_item, order))}
+        # 因為 order_id 是唯一的，因此只會回傳一筆 dict 格式的資料
+        response = {"order": order}
         current_app.logger.info("Response: " + str(response))
 
         return response

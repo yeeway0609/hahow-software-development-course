@@ -47,6 +47,7 @@ class CreateOrderHandler:
 
         self.validate_input(request_body)
 
+        # 創建訂單資料後會回傳一個 order_id
         order_id = self.__order_collection_dao.create_order_data(order=request_body)
 
         response = {"order_id": str(order_id)}
