@@ -14,9 +14,7 @@ def test_validate_input_when_succeed(test_app_context):
             # 測試不輸入任何值
             GetOrderHandler.validate_input({})
             # 測試輸入符合格式的值
-            GetOrderHandler.validate_input(
-                {"order_id": "test_order_id"}
-            )
+            GetOrderHandler.validate_input({"order_id": "test_order_id"})
         except InvalidAPIUsageException:
             pytest.fail("Unexpected InvalidAPIUsageException ..")
 
@@ -31,9 +29,7 @@ def test_validate_input_when_failed(test_app_context):
             GetOrderHandler.validate_input({"order_id": ""})
         with pytest.raises(InvalidAPIUsageException):
             # 測試輸入多餘的欄位
-            GetOrderHandler.validate_input(
-                {"order_id": "bad_order_id", "extra": ""}
-            )
+            GetOrderHandler.validate_input({"order_id": "bad_order_id", "extra": ""})
 
 
 def test_get_order_when_call_succeed(test_app_context):
