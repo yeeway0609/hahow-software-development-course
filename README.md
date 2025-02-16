@@ -34,10 +34,16 @@
 
 ### 2. API Implementation
 
-- [GetOrder](./order_system/handler/get_order.py)
-- [CreateOrder](./order_system/handler/create_order.py)
+- [Get Order](./order_system/handler/get_order.py)
+- [Create Order](./order_system/handler/create_order.py)
 
 ### 3. Unit Test
 
-- [TestGetOrder](./tst/unit/handler/test_get_order.py)
-- [TestCreateOrder](./tst/unit/handler/test_create_order.py)
+- [GetOrder](./tst/unit/handler/test_get_order.py)
+- [CreateOrder](./tst/unit/handler/test_create_order.py)
+
+### 4. Integration Test
+- [Get Order API 與 API Handler](./tst/integration/test_api_handler_inte.py)
+- [Create Order API 與 API Handler](./tst/integration/test_api_handler_inte.py)
+- [Get Order API 與 Order DAO](./tst/integration/test_handler_dao_inte.py)
+- [Create Order API 與 Order DAO](./tst/integration/test_handler_dao_inte.py)
