@@ -33,8 +33,8 @@ def create_app(container=Container()):
     database.order_system.command("ping")
 
     app.add_url_rule("/get-menu/", view_func=GetMenuView.as_view("get-menu"))
-    app.add_url_rule("/get-order", view_func=GetOrderView.as_view("get-order"))
-    app.add_url_rule("/create-order", view_func=CreateOrderView.as_view("create-order"))
+    app.add_url_rule("/get-order/", view_func=GetOrderView.as_view("get-order"))
+    app.add_url_rule("/create-order/", view_func=CreateOrderView.as_view("create-order"))
     app.register_error_handler(InvalidAPIUsageException, invalid_api_usage_handler)
     app.register_error_handler(500, invalid_api_usage_handler)
 

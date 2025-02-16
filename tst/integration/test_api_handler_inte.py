@@ -47,3 +47,9 @@ def client():
 def test_get_menu_api(client):
     response = client.post("/get-menu/", json={})
     assert response.get_json() == {"menu": []}
+
+# TODO: Implement the following tests
+# def test_get_order_api(client):
+
+# TODO: Implement the following tests
+# def test_create_order_api(client):
