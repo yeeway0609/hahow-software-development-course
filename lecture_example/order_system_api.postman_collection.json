@@ -6,29 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "get-order",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    id:1,\n    name:jimmy\n}"
-				},
-				"url": {
-					"raw": "localhost:5000/get-order/",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"get-order",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "get-menu",
 			"request": {
 				"method": "POST",
@@ -57,13 +34,46 @@
 			"response": []
 		},
 		{
+			"name": "get-order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order_id\": \"67b19b573658a1fa38e65d6d\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/get-order/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"get-order",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "create-order",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    id:1,\n    name:jimmy\n}"
+					"raw": "{\n    customerName:\"test_customer\",\n    orderTime:\"test_time\",\n    items:[\"item1\", \"item2\"],}"
 				},
 				"url": {
 					"raw": "localhost:5000/create-order/",
