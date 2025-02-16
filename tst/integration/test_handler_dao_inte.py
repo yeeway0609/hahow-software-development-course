@@ -70,7 +70,9 @@ def test_create_order_and_order_dao_integration(test_app_context):
         mock_result = Mock(inserted_id=test_order_id)
         mock_order_collection = create_autospec(Collection)
         mock_order_collection.insert_one = Mock(return_value=mock_result)
-        create_order_handler = CreateOrderHandler(OrderCollectionDAO(mock_order_collection))
+        create_order_handler = CreateOrderHandler(
+            OrderCollectionDAO(mock_order_collection)
+        )
 
         test_request_body = {
             "customerName": "test_customer",

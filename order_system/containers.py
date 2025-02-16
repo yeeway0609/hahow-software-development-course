@@ -19,6 +19,7 @@ class Container(containers.DeclarativeContainer):
     menu_collection_dao = providers.Singleton(
         MenuCollectionDAO, collection=db_client.provided.order_system.menu
     )
+
     order_collection_dao = providers.Singleton(
         OrderCollectionDAO, collection=db_client.provided.order_system.order
     )

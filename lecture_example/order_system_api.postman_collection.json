@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "df132afa-1a37-4097-9b29-baa6c74d2e54",
+		"name": "order_system_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get-order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    id:1,\n    name:jimmy\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/get-order/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"get-order",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-menu",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"category\": \"Entree\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/get-menu/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"get-menu",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    id:1,\n    name:jimmy\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/create-order/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"create-order",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
